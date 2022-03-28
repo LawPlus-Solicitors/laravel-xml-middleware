@@ -5,7 +5,7 @@ namespace XmlMiddleware;
 use JsonSerializable;
 use SimpleXMLElement;
 
-class NullableXMLElement extends SimpleXMLElement implements JsonSerializable
+class TypedXMLElement extends SimpleXMLElement implements JsonSerializable
 {
     /**
      * @inheritDoc
@@ -43,7 +43,7 @@ class NullableXMLElement extends SimpleXMLElement implements JsonSerializable
 
         // return empty elements as NULL (self-closing or empty tags)
         if ($array === []) {
-            $array = null;
+            $array = '';
         }
 
         return $array;
