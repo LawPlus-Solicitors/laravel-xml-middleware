@@ -10,7 +10,7 @@ class NullableXMLElement extends SimpleXMLElement implements JsonSerializable
     /**
      * @inheritDoc
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize(): mixed
     {
         $array = [];
 
@@ -42,8 +42,8 @@ class NullableXMLElement extends SimpleXMLElement implements JsonSerializable
         }
 
         // return empty elements as NULL (self-closing or empty tags)
-        if (!$array) {
-            $array = NULL;
+        if ($array === []) {
+            $array = null;
         }
 
         return $array;
