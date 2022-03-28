@@ -1,5 +1,5 @@
 {
-  "name": "tucker-eric/laravel-xml-middleware",
+  "name": "pinpointcallsolutions/laravel-xml-middleware",
   "description": "A Laravel Middleware to accept XML requests",
   "keywords": [
     "Laravel",
@@ -11,7 +11,9 @@
   ],
   "require": {
     "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
-    "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0"
+    "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0",
+    "ext-json": "*",
+    "ext-simplexml": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5"
@@ -21,6 +23,10 @@
     {
       "name": "Eric Tucker",
       "email": "tucker.ericm@gmail.com"
+    },
+    {
+      "name": "Simon Pioli",
+      "email": "spioli@returnmymoney.co.uk"
     }
   ],
   "autoload": {

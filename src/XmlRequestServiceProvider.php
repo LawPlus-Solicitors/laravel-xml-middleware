@@ -24,7 +24,7 @@ class XmlRequestServiceProvider extends ServiceProvider
                 return $assoc ? [] : new \stdClass;
             }
             // Returns the xml input from a request
-            $xml = simplexml_load_string($content, null, LIBXML_NOCDATA);
+            $xml = simplexml_load_string($content, NullableXMLElement::class, LIBXML_NOCDATA);
             $json = json_encode($xml);
 
             return json_decode($json, $assoc);
