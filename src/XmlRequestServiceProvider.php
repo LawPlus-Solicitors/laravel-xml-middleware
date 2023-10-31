@@ -16,6 +16,10 @@ class XmlRequestServiceProvider extends ServiceProvider
     public function register()
     {
         Request::macro('isXml', function () {
+            // Method renamed in Symfony 6.2
+            if (method_exists(Request::class, 'getContentTypeFormat')) {
+                return strtolower($this->getContentTypeFormat()) === 'xml';
+            }
             return strtolower($this->getContentType()) === 'xml';
         });
 

@@ -1,38 +1,42 @@
 {
-  "name": "lawplussolicitors/laravel-xml-middleware",
-  "description": "A Laravel Middleware to accept XML requests",
-  "keywords": [
-    "Laravel",
-    "xml-middleware",
-    "xml",
-    "middleware",
-    "xml request",
-    "request"
-  ],
-  "require": {
-    "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
-    "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0",
-    "ext-json": "*",
-    "ext-simplexml": "*"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.5"
-  },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Eric Tucker",
-      "email": "tucker.ericm@gmail.com"
+    "name": "lawplussolicitors/laravel-xml-middleware",
+    "description": "A Laravel Middleware to accept XML requests",
+    "keywords": [
+        "Laravel",
+        "xml-middleware",
+        "xml",
+        "middleware",
+        "xml request",
+        "request"
+    ],
+    "require": {
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-libxml": "*",
+        "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0"
     },
-    {
-      "name": "Simon Pioli",
-      "email": "spioli@returnmymoney.co.uk"
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric Tucker",
+            "email": "tucker.ericm@gmail.com"
+        },
+        {
+            "name": "Simon Pioli",
+            "email": "simon@lawplus.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "XmlMiddleware\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "XmlMiddleware\\": "src/"
-    }
-  },
-  "minimum-stability": "dev"
 }
