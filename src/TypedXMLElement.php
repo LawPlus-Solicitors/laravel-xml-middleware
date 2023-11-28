@@ -31,9 +31,11 @@ class TypedXMLElement extends SimpleXMLElement implements JsonSerializable
             }
         }
 
-        // json encode non-whitespace element simplexml text values.
-        $text = trim($this);
-        if (strlen($text)) {
+        // JSON-encode non-whitespace element simplexml text values.
+        // Preserve whitespace in non-empty strings.
+        $text = (string) $this;
+        $trimmed = trim($text);
+        if (strlen($trimmed)) {
             if ($array) {
                 $array['@text'] = $text;
             } else {
