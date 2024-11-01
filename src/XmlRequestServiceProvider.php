@@ -23,12 +23,14 @@ class XmlRequestServiceProvider extends ServiceProvider
             return strtolower($this->getContentType()) === 'xml';
         });
 
-        Request::macro('xml', function ($assoc = true) {
+        Request::macro('xml', function ($assoc = true, $allowCData = false) {
             if (!$this->isXml() || !$content = $this->getContent()) {
                 return $assoc ? [] : new \stdClass;
             }
-            // Detect and convert ampersands because we can’t use CDATA from Proclaim
-            $content = str_replace('&', '&amp;', $content);
+            if (!$allowCData) {
+                // Detect and convert ampersands because we couldn’t use CDATA from Proclaim when first implemented
+                $content = str_replace('&', '&amp;', $content);
+            }
             // Returns the xml input from a request
             $xml = simplexml_load_string($content, TypedXMLElement::class, LIBXML_NOCDATA);
             $json = json_encode($xml);
